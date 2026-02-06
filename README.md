@@ -37,14 +37,6 @@ En la simulación de máxima coherencia (`v5`), el sistema colapsa de **4096 est
 El sistema demuestra que la estabilidad emerge de la repetición fractal. La realidad "prefiere" estados de alternancia equilibrada, resonando con las proporciones áureas de crecimiento natural.
 
 ---
-
-## 🚀 Guía de Inicio Rápido
-
-### Requisitos
-Es necesario tener instalado Python 3.8+ y el entorno de simulación cuántica de IBM:
-```bash
-pip install qiskit qiskit-aer
-
 ### Ejecución
 Para observar el colapso de la función de onda en tiempo real y ver los estados coherentes:
 
@@ -53,4 +45,14 @@ python3 quant_v5_3axes.py
 
 ## 🧠 IA y Consciencia Sintética
 Este código sirve como maqueta para una nueva arquitectura de IA. En lugar de procesar datos de forma lineal, la IA actúa como un filtro de coherencia que busca la "verdad" dentro de un espacio latente de alta dimensionalidad, eliminando las alucinaciones (ruido) mediante ejes de alineación lógica.
+
+---
+
+## 🚀 Guía de Inicio Rápido
+
+### Requisitos
+Es necesario tener instalado Python 3.8+ y el entorno de simulación cuántica de IBM:
+```bash
+pip install qiskit qiskit-aer
+
 
