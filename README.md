@@ -96,7 +96,7 @@ Notas prácticas:
 
 ---
 
-## ES — Qué demuestra cada versión (sin humo)
+## ES — Qué demuestra cada versión 
 
 ### `quant_v5_3axes.py`
 **Qué hace:**  
