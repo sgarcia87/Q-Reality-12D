@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """
-quant_v10_4axes_full_vertices_sign.py
 
 Alineado con 'La Realidad.pdf': teseracto completo (16 vértices por patrón 4D), 
 alineación en 4 ejes (4 dims), ^3 como repetición fractal en 3 planos, 
