@@ -1,6 +1,6 @@
 # Quantum Fractal Simulator
 
-## 🌌 Español
+## .·.
 
 ### Descripción general
 
