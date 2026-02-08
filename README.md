@@ -244,11 +244,94 @@ El experimento muestra que:
 Desde esta perspectiva, el resultado ilustra cómo la geometría profunda del sistema decide qué realidades son posibles y cuáles no, incluso antes de cualquier medición.
 
 ---
+## Q-12_v13.py
+Exact Amplitude Amplification, 4 ejes
 
-### **🔹 Relevancia**
+### 🔹 Descripción conceptual
+Esta versión implementa un esquema de amplificación de amplitud exacta (Exact Grover) sobre un espacio de 12 qubits organizado en 4 ejes alineados entre planos:
+- q0 = q4 = q8
+- q1 = q5 = q9
+- q2 = q6 = q10
+- q3 = q7 = q11
+Cada eje representa una dimensión coherente del sistema. Un estado es considerado coherente únicamente si los cuatro ejes están perfectamente alineados y satisfacen una condición de signo ± definida por la paridad XOR de los 4 bits base.
+A diferencia de las versiones anteriores, aquí no se usa Grover estándar, sino un esquema exacto:
+- Se aplican 𝑘−1 iteraciones estándar (π, π)
+- Una última iteración con fases ajustadas (𝜙 𝑜𝑟𝑎𝑐𝑙𝑒,𝜙𝑑𝑖𝑓𝑓) calculadas para anular exactamente la amplitud de los estados no coherentes
+
+Este ajuste reduce el problema a una dinámica efectiva de dos niveles, donde la rotación final lleva el estado cuántico exactamente al subespacio coherente.
+
+## 🔹 Resultados principales
+Para ambos signos:
+**Shots coherentes: 4096 / 4096 = 1.000000**
+
+**SIGN = +**
+
+```bash
+python3 Q-12_v13.py 
+SIGN=+  N=4096  M=8  a=0.001953125000  k_fijo=18
+
+[Exact last-step phases]
+phi_oracle_last = 1.839103417296 rad
+phi_diff_last   = 0.538618447581 rad
+P_theory(k=18) ≈ 1.000000000000000
+|bad|_theory      ≈ 3.070e-14
+
+**Shots coherentes: 4096 / 4096 = 1.000000**
+MALOS: ninguno (100% coherentes en estos shots).
+```
+
+**SIGN = −**
+```bash
+python3 Q-12_v13.py  
+SIGN=-  N=4096  M=8  a=0.001953125000  k_fijo=18
+
+[Exact last-step phases]
+phi_oracle_last = 1.839103417296 rad
+phi_diff_last   = 0.538618447581 rad
+P_theory(k=18) ≈ 1.000000000000000
+|bad|_theory      ≈ 3.070e-14
+
+Shots coherentes: 4096 / 4096 = 1.000000
+MALOS: ninguno (100% coherentes en estos shots).
+
+```
+
+Resultados clave:
+- Existen 8 estados coherentes compatibles con la estructura de 4 ejes.
+- El algoritmo concentra el 100% de la probabilidad en esos estados.
+- No aparece ningún estado espurio en ninguna de las ramas ±.
+- El resultado coincide con la predicción teórica.
+Esto confirma que el control de fases es matemáticamente consistente y estable en ambas ramas del signo.
+
+### 🔹 Qué intenta demostrar
+Esta versión intenta demostrar que, cuando la estructura geométrica es completa, la dualidad ± deja de ser una fuente de indeterminación. A diferencia de versiones anteriores donde el ± podía estar prohibido por la estructura, o definido como lectura global (paridad, producto), aquí el sistema posee suficiente simetría y dimensionalidad como para admitir ambas ramas del signo de forma plenamente coherente.
+
+El resultado muestra que:
+. La geometría define el conjunto de estados posibles
+- El ± selecciona una rama dentro de ese conjunto
+- La dinámica cuántica puede ajustarse exactamente para colapsar en ella sin residuo
+
+En términos del marco del libro, esta versión representa un hipercubo conceptual cerrado en el que todos los ejes están presentes siendo el observador (±) puede situarse en cualquiera de las dos polaridades. En ambos casos la coherencia se mantiene intacta. Es la demostración de que, cuando la estructura está completa, la dualidad no rompe la coherencia, sino que se integra como una elección legítima dentro del todo.
+
+
+---
+
+## **🔹 Relevancia**
 Este enfoque puede interpretarse como un modelo mínimo de:
 - coherencia estructural
 - reducción de grados de libertad
 - emergencia de orden a partir de simetría y alineación dimensional
 
 Futuro intento de posibles conexiones conceptuales con modelos geométricos del significado, sistemas cognitivos estructurados y arquitecturas no estadísticas de inferencia :)
+
+### 🔹 Conclusión general del proyecto
+
+Este proyecto explora la idea central: La coherencia no emerge del cálculo, sino de la estructura. A lo largo de las distintas versiones se muestra que:
+- El equilibrio local no es suficiente
+- La alineación interdimensional reduce drásticamente el espacio de estados
+- El signo ± no pertenece necesariamente al sistema, sino al marco desde el cual se lo observa
+- Que solo cuando la estructura es completa, la dualidad puede integrarse sin pérdida de coherencia
+
+El uso de algoritmos cuánticos no persigue ventaja computacional, sino hacer visible cómo la geometría interna de un sistema define qué realidades son posibles y cuáles no. A su vez, permite mostrar (al imponer coherencia geométrica estricta) que el espacio de posibilidades colapsa de forma determinista hacia configuraciones altamente ordenadas.
+
+El resultado final (de Q-12_v13.py) sugiere que la dualidad no es un problema a resolver, sino una propiedad que solo emerge correctamente cuando la estructura está completa.
