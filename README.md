@@ -1,7 +1,6 @@
 # Quantum Fractal Simulator
 Este repositorio explora un modelo conceptual en el que la coherencia emerge de restricciones geométricas impuestas sobre espacios cuánticos simulados.
 
-.·.
 
 ## Descripción general
 
@@ -336,3 +335,5 @@ Este proyecto explora la idea central: La coherencia no emerge del cálculo, sin
 El uso de algoritmos cuánticos no persigue ventaja computacional, sino hacer visible cómo la geometría interna de un sistema define qué realidades son posibles y cuáles no. A su vez, permite mostrar (al imponer coherencia geométrica estricta) que el espacio de posibilidades colapsa de forma determinista hacia configuraciones altamente ordenadas.
 
 El resultado final (de Q-12_v13.py) sugiere que la dualidad no es un problema a resolver, sino una propiedad que solo emerge correctamente cuando la estructura está completa.
+
+.·.
