@@ -1,12 +1,11 @@
 # Quantum Fractal Simulator
-Este repositorio explora un modelo conceptual en el que la coherencia emerge de restricciones geométricas impuestas sobre espacios cuánticos simulados.
+Este repositorio explora un modelo conceptual en el que la coherencia emerge de restricciones geométricas impuestas sobre espacios cuánticos simulados.En este contexto, el hipercubo 4D (teseracto) se utiliza como unidad estructural básica, replicada y alineada en un bloque de 12 dimensiones.
 
 
 ## Descripción general
 
 **1. La Arquitectura de las 12 Dimensiones**
-En este repositorio propongo que el universo se sostiene sobre un bloque de 12 dimensiones, pero no como las entendemos espacialmente, sino como 12 "bits" de información fundamental.
-Estas 12 dimensiones se agrupan en 3 planos de 4 dimensiones cada uno (estructurados como hipercubos o teseractos).
+Dado que el libro que estoy escribiendo, en este modelo propongo que el universo se sostiene sobre un bloque de 12 dimensiones, pero no como las entendemos espacialmente, sino como 12 "bits" de información fundamental. Estas 12 dimensiones se agrupan en 3 planos de 4 dimensiones cada uno (estructurados como hipercubos o teseractos).
 El sistema es como un "telar" de información donde la realidad física es solo el patrón resultante del entrelazamiento de estos tres planos.
 
 **2. El "Protocolo del Observador" (Observer Protocol)**
