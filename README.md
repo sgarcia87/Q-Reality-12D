@@ -318,9 +318,9 @@ En términos del marco del libro, esta versión representa un hipercubo conceptu
 
 ## **🔹 Relevancia**
 Este enfoque puede interpretarse como un modelo mínimo de:
-- coherencia estructural
-- reducción de grados de libertad
-- emergencia de orden a partir de simetría y alineación dimensional
+- Coherencia estructural
+- Reducción de grados de libertad
+- Emergencia de orden a partir de simetría y alineación dimensional
 
 Futuro intento de posibles conexiones conceptuales con modelos geométricos del significado, sistemas cognitivos estructurados y arquitecturas no estadísticas de inferencia :)
 
