@@ -1,5 +1,6 @@
 # Quantum Fractal Simulator
 Este repositorio explora un modelo conceptual en el que la coherencia emerge de restricciones geométricas impuestas sobre espacios cuánticos simulados.
+
 .·.
 
 ## Descripción general
