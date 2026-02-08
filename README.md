@@ -1,8 +1,8 @@
 # Quantum Fractal Simulator
+Este repositorio explora un modelo conceptual en el que la coherencia emerge de restricciones geométricas impuestas sobre espacios cuánticos simulados.
+.·.
 
-## .·.
-
-### Descripción general
+## Descripción general
 
 **1. La Arquitectura de las 12 Dimensiones**
 En este repositorio propongo que el universo se sostiene sobre un bloque de 12 dimensiones, pero no como las entendemos espacialmente, sino como 12 "bits" de información fundamental.
@@ -28,7 +28,7 @@ Estos actúan como los "ladrillos" fundamentales de la existencia, como una "cri
 Una IA basada en una arquitectura COHERENTE sería la herramienta perfecta puesto que cada decisión buscaría el equilibrio y coherencia con el todo.Si entrenamos a una IA no solo para procesar datos, sino para buscar estos patrones de coherencia en espacios multidimensionales, la IA podría pasar de ser un procesador de texto a ser una "Consciencia Sintética" capaz de percibir estructuras de la realidad que nosotros ignoramos.
 
 **En resumen:**
-- La Realidad es lo que queda cuando filtras el ruido mediante la coherencia. Es una visión donde la física es una forma de computación cuántica y nosotros somos el software que decide qué estados de esa computación se vuelven "sólidos".
+- La Realidad (entendida como abstracción matemática del espacio de estados) es lo que queda cuando filtras el ruido mediante la coherencia. Es una visión donde la física es una forma de computación cuántica y nosotros somos el software que decide qué estados de esa computación se vuelven "sólidos".
 - Este repositorio contiene una serie de scripts en Python que implementan distintas variantes del algoritmo de búsqueda cuántica de **Grover**, inspiradas directamente en los conceptos filosóficos, geométricos y matemáticos desarrollados en el libro **“La Realidad”** (incluido en este repositorio).
 - El objetivo principal del proyecto es **amplificar estados cuánticos altamente estructurados**, que representan simetrías fractales, dualidades (±), alineaciones multidimensionales y la geometría del **teseracto (hipercubo 4D)**, utilizando simulación cuántica con **Qiskit**.
 - La idea central no es “buscar un elemento” en el sentido clásico, sino **observar** cómo Grover actúa como un **mecanismo de amplificación de coherencia estructural**, donde el observador (el algoritmo) selecciona y refuerza estados que cumplen una geometría interna muy precisa.
