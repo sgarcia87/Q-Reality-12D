@@ -54,6 +54,7 @@ Los qubits se organizan en tres planos de 4 qubits, y un estado se considera coh
 Estas condiciones reducen el espacio válido de 4096 estados posibles a únicamente 6 estados coherentes.
 
 ### 🔹 Resultado principal
+**Shots coherentes: 4096 / 4096 = 1.000000**
 El algoritmo de Grover concentra el 100% de la probabilidad de medición en estos estados coherentes:
 ```bash
 python3 quant_v5_3axes.py
@@ -89,6 +90,7 @@ En lugar de fijar un “signo” en un eje local, el ± se implementa como parid
 Esto hace que el ± actúe como una condición global de lectura del sistema.
 
 ### 🔹 Resultado principal
+**Shots coherentes (según C en físico): 4096 / 4096 = 1.000000**
 Con N=4096 estados posibles, solo M=6 cumplen simultáneamente (estructura + paridad). Tras ~20 iteraciones, Grover concentra el 100% de la probabilidad de medida en esos estados:
 
 ```bash
@@ -141,7 +143,7 @@ Es decir, el signo emerge del conjunto completo de los 12 qubits, no de ninguna 
 ### Resultados principales
 
 **Rama SIGN = +**
-
+**Shots coherentes (según C en físico): 4096 / 4096 = 1.000000**
 ```bash
 python3 quant_v10_12sign_product_pm.py
 SIGN=+ (12-sign product; bits: popcount PAR)
@@ -154,7 +156,7 @@ Estados coherentes (fisico): 6
 101010101010 ['1010', '1010', '1010'] popcount= 6 Sbit= 1
 110011001100 ['1100', '1100', '1100'] popcount= 6 Sbit= 1
 TOP10: [('110011001100', 717), ('100110011001', 696), ('010101010101', 693), ('001100110011', 676), ('101010101010', 671), ('011001100110', 643)]
-Shots coherentes (según C en físico): 4096 / 4096 = 1.000000
+**Shots coherentes (según C en físico): 4096 / 4096 = 1.000000**
 110011001100 717 phys= 001100110011 ok= True popcount= 6 Sbit= 1 blocks= ['0011', '0011', '0011']
 100110011001 696 phys= 100110011001 ok= True popcount= 6 Sbit= 1 blocks= ['1001', '1001', '1001']
 010101010101 693 phys= 101010101010 ok= True popcount= 6 Sbit= 1 blocks= ['1010', '1010', '1010']
@@ -178,13 +180,14 @@ Todos los estados coherentes presentan:
 El sistema no genera ningún estado incoherente.
 
 **Rama SIGN = −**
+**Shots coherentes (según C en físico): 0 / 4096 = 0.000000**
 ```bash
 python3 quant_v10_12sign_product_pm.py
 SIGN=- (12-sign product; bits: popcount IMPAR)
 N=4096  M=0  M/N=0.000000  k_sugerido≈0  k_usado=0
 Estados coherentes (fisico): 0
 TOP10: [('100010011111', 6), ('000011110101', 5), ('000110000011', 5), ('100010100011', 5), ('000110111111', 5), ('101000010010', 5), ('100000011010', 5), ('000000000110', 5), ('011010001111', 5), ('110111100010', 5)]
-Shots coherentes (según C en físico): 0 / 4096 = 0.000000
+**Shots coherentes (según C en físico): 0 / 4096 = 0.000000**
 100010011111 6 phys= 111110010001 ok= False popcount= 7 Sbit= 0 blocks= ['1111', '1001', '0001']
 000011110101 5 phys= 101011110000 ok= False popcount= 6 Sbit= 1 blocks= ['1010', '1111', '0000']
 000110000011 5 phys= 110000011000 ok= False popcount= 4 Sbit= 1 blocks= ['1100', '0001', '1000']
