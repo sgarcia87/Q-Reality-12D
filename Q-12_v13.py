@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """
-quant_v10_4axes_full_vertices_sign_exact_k18.py
 
 Exact amplitude amplification (estilo "Exact Grover"):
 - (k-1) iteraciones estándar (pi, pi)
