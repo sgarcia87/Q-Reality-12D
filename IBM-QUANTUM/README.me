@@ -1,1 +1,182 @@
+# IBM-QUANTUM — Hardware Validation Experiments
+
+This folder contains the first hardware validation experiments executed on IBM Quantum hardware (ibm_torino backend).
+
+The objective of these experiments is to test, under real NISQ noise conditions, the following architectural principle:
+
+> Concentrate coherence in a small structural nucleus first,  
+> then propagate structure (state and/or relations) afterward.
+
+These experiments do **not** claim quantum advantage.  
+They evaluate structural robustness and propagation behavior under realistic hardware noise.
+
+---
+
+# 1. Conceptual Overview
+
+All experiments are based on a 4-qubit core (the "nucleus") and structured propagation to higher-dimensional layers.
+
+The system evaluates three aspects simultaneously:
+
+1. **Core amplification** (Grover on 4 qubits)
+2. **Bitwise propagation** (state replication)
+3. **Relational propagation** (XOR-based structural invariants)
+
+The experiments explore how these components behave under hardware noise.
+
+---
+
+# 2. qIBM_V3.7 — Hybrid (12 qubits)
+
+## Architecture
+
+Total qubits: 12
+
+- q0–q3   → Core (4D nucleus)
+- q4–q7   → Bitwise copy of core
+- q8–q11  → Structural relations (XOR neighbors)
+
+Workflow:
+
+1. Prepare superposition on core.
+2. Apply 1 Grover iteration on the 4-qubit nucleus.
+3. After amplification:
+   - Copy core state bitwise.
+   - Compute XOR structural relations.
+4. Measure entire system.
+
+---
+
+## What It Measures
+
+- `P_good_base`  
+  Probability that the core collapses into the selected coherent subset (weight=1 or weight=3 states).
+
+- `bit_exact`  
+  Bitwise consistency between core and copied layer.
+
+- `rel_consistency`  
+  Consistency of relational XOR invariants derived from the core.
+
+---
+
+## Hardware Results (IBM Torino)
+
+Typical observed behavior:
+
+- Significant increase in `P_good_base` when k=1.
+- Bitwise copy remains reasonably stable.
+- Relational invariants remain highly consistent (~0.85–0.90 range).
+
+This demonstrates that:
+
+- Core amplification is physically observable in hardware.
+- Structural relations are robust under realistic NISQ noise.
+- Propagating structure **after** amplification preserves coherence better than early replication.
+
+---
+
+# 3. qIBM_V3.7_full — Full Structural Propagation (16 qubits)
+
+## Architecture
+
+Total qubits: 16
+
+- q0–q3     → Core (4D nucleus)
+- q4–q7     → Bitwise copy
+- q8–q11    → XOR neighbor relations
+- q12–q15   → XOR cross relations
+
+This version evaluates two independent structural invariant layers simultaneously.
+
+---
+
+## What It Demonstrates
+
+The full version confirms:
+
+1. Core amplification remains observable in hardware.
+2. Both local (neighbor) and cross relations remain highly stable.
+3. Structural invariants survive hardware noise better than exact state fidelity.
+
+---
+
+# 4. Empirical Contribution
+
+These experiments contribute to the current NISQ landscape by demonstrating:
+
+- Amplification-first strategies are more robust than early fan-out.
+- Structural propagation (relations) is more stable than full state replication.
+- Hybrid architectures (state + relations) are physically viable.
+
+This supports a practical heuristic for NISQ-era algorithm design:
+
+> Under noise, amplify locally first.  
+> Then propagate invariants, not full state detail.
+
+---
+
+# 5. Relevance to Current Quantum Landscape
+
+In the current NISQ regime:
+
+- Multi-controlled gates are costly.
+- State replication propagates noise quickly.
+- Deep fan-out architectures degrade coherence.
+
+These experiments show that:
+
+- Localized coherence amplification followed by structural projection is viable.
+- Relational encodings can remain stable even when bitwise copies degrade.
+- Structural invariants provide a measurable robustness metric.
+
+This is aligned with ongoing research directions focused on:
+- Noise-aware algorithm design
+- Invariant-based validation
+- Hybrid classical-quantum robustness metrics
+
+---
+
+# 6. Files Included
+
+- `qIBM_V3.7.py`
+- `qIBM_V3.7_full.py`
+- `results_qIBM_v3_7_*.json`
+- `results_qIBM_v3_7_full_*.json`
+
+All experiments executed on:
+- IBM Quantum backend: `ibm_torino`
+- 4096 shots
+- Transpile optimization level = 1
+
+---
+
+# 7. Scope and Limitations
+
+These experiments:
+
+- Do not claim quantum speedup.
+- Do not demonstrate fault tolerance.
+- Operate within NISQ constraints.
+
+They are architectural validation experiments.
+
+Their purpose is to empirically test structural propagation behavior under hardware noise.
+
+---
+
+# 8. Summary
+
+IBM-QUANTUM contains the first hardware validation of:
+
+- Core amplification
+- Delayed propagation
+- Structural invariant robustness
+
+The results confirm that:
+
+- Amplifying a small coherent nucleus before propagation improves robustness.
+- Structural relations remain stable even under realistic noise.
+
+This establishes a practical experimental baseline for further architectural exploration.
 
