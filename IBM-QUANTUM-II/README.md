@@ -621,45 +621,348 @@ which summarizes the structural performance of a quantum backend.
 # Experiment v4 · Grover Dynamics
 
 File:
-
 ```
 tri_hipercubo_quantum_v4.py
 ```
-
 Performs a Grover sweep:
-
+```
 | k | A_good_rate |
 |---|-------------|
 | 0 | ~0.25 |
 | 1 | ~0.62 |
 | 2 | ~0.37 |
-
+```
 This matches the expected Grover amplification curve.
 
-Result file:
+## Objective
 
+The previous experiments showed that:
+- the tri-hypercube constraint survives hardware noise (v1)
+- structural subsets can be amplified (v2)
+- the interaction between selection and coherence can be measured statistically (v3)
+
+The next question is:
 ```
-tri_hypercube_k_sweep_*.json
+Does the amplification follow the expected Grover dynamics when we vary the number of iterations?
 ```
+This experiment performs a Grover sweep by varying the number of Grover iterations applied to register A.
+
+## Experimental Idea
+
+Register A contains 4 qubits, therefore:
+```
+|A| = 2^4 = 16 states
+```
+The oracle marks the one-hot states:
+```
+0001
+0010
+0100
+1000
+```
+Number of marked states:
+```
+M = 4
+```
+Total states:
+```
+N = 16
+```
+So the baseline probability of observing a marked state is:
+```
+M / N = 4 / 16 = 0.25
+```
+Grover amplification should increase this probability after one iteration.
+
+## Circuit Procedure
+
+For each value of k, the circuit performs:
+
+1- Uniform superposition over registers A and B
+```
+qc.h(A)
+qc.h(B)
+```
+
+2- k Grover iterations applied only to register A
+Each iteration consists of:
+```
+oracle → diffusion
+```
+
+3- Propagation of the structural constraint
+```
+C_i = A_i XOR B_i
+```
+implemented with:
+```
+qc.cx(A[i], C[i])
+qc.cx(B[i], C[i])
+```
+
+4- Measurement of all qubits.
+
+## Metric Measured
+
+The key metric for this experiment is:
+```
+A_good_rate
+```
+which measures the probability that the measured state of register A belongs to the one-hot subset.
+
+## Grover Sweep
+
+The experiment evaluates three values of k:
+```
+k	Description
+0	No Grover step (baseline)
+1	Single Grover amplification
+2	Second Grover iteration
+Example Results (IBM Marrakesh)
+```
+Typical results observed on real hardware:
+```
+k	A_good_rate
+0	~0.25
+1	~0.62
+2	~0.37
+```
+
+## Interpretation:
+
+### k = 0
+Uniform distribution over A.
+
+### k = 1
+Amplitude amplification increases probability of the target states.
+
+### k = 2
+Probability decreases again due to Grover over-rotation.
+
+This pattern matches the theoretical Grover behavior.
+
+## Why This Matters
+
+This experiment demonstrates that:
+- The tri-hypercube subspace is compatible with Grover amplification.
+- The quantum hardware reproduces the expected Grover oscillation.
+- Structural coherence is preserved while the subset is amplified.
+In other words:
+```
+The system behaves like a structured search space embedded inside the coherent tri-hypercube subspace.
+```
+
+## Result Files
+
+Example output files:
+```
+tri_hypercube_k_sweep_20260314_205923.json
+```
+These files contain:
+```
+coherent_rate
+axis_consistency
+A_good_rate
+joint_rate
+```
+for each value of k.
+
+## Interpretation in the Model
+
+Within the tri-hypercube framework:
+- the coherent subspace contains 256 valid states
+- Grover amplification selects families of states defined by the geometry of A
+- the experiment confirms that this selection behaves according to the theoretical Grover dynamics
+This result validates that the structural model can support controlled quantum amplitude amplification.
+
+## Role in the Project
+
+Experiment v4 demonstrates that the tri-hypercube model is not only structurally coherent but also dynamically manipulable using standard quantum algorithms.
+It provides the bridge between:
+```
+structural coherence (v1)
+subset amplification (v2)
+statistical interaction (v3)
+```
+and the final benchmarking framework used in the Structural Coherence Certificate.
 
 ---
 
 # Experiment v5 · Geometric Selection
 
-File:
-
+File
 ```
 tri_hipercubo_quantum_v5.py
 ```
 
-Compares two types of structural subsets:
+## Objective
 
-• one‑hot states → axes of the hypercube  
-• two‑hot states → diagonals
+The previous experiments showed that:
+- the tri-hypercube structural constraint can survive hardware noise (v1)
+- Grover amplification can bias the system toward specific subsets (v2)
+- the interaction between selection and structural coherence can be measured statistically (v3)
+- Grover amplification follows the expected oscillation dynamics (v4)
+
+The goal of this experiment is different:
+```
+Investigate how the geometry of the selected subset of states affects structural coherence.
+```
+In particular, the experiment compares two different subsets of register A:
+```
+one-hot states
+two-hot states
+```
+These correspond to different geometric directions in the 4D hypercube of A.
+
+## Structural Subsets Compared
+
+Register A contains 4 qubits:
+```
+A1 A2 A3 A4
+```
+which define a 4-dimensional hypercube with 16 possible states.
+
+The experiment compares two families of states.
+
+### One-Hot States
+```
+0001
+0010
+0100
+1000
+```
+These correspond to the axes of the hypercube.
+Geometrically they represent unit vectors:
+```
+(1,0,0,0)
+(0,1,0,0)
+(0,0,1,0)
+(0,0,0,1)
+```
+Number of states:
+```
+4
+```
+Baseline probability without amplification:
+```
+4 / 16 = 0.25
+```
+
+### Two-Hot States
+```
+1100
+0011
+1010
+0101
+1001
+0110
+```
+These correspond to diagonal directions of the hypercube faces.
+Example vectors:
+
+(1,1,0,0)
+(0,0,1,1)
+(1,0,1,0)
+...
+Number of states:
+```
+6
+```
+Baseline probability without amplification:
+```
+6 / 16 = 0.375
+```
+
+## Circuit Procedure
+
+The circuit structure is similar to Experiment v2.
+
+1- Prepare uniform superposition over A and B
+```
+qc.h(A)
+qc.h(B)
+```
+
+2- Apply a Grover oracle selecting either:
+```
+one-hot states
+or
+two-hot states
+```
+
+3- Apply Grover diffusion.
+
+4- Compute the structural relation:
+```
+C_i = A_i XOR B_i
+```
+
+5- Measure all qubits.
+
+## Metrics Measured
+
+The same structural metrics from previous experiments are used.
+```
+coherent_rate
+axis_consistency
+A_good_rate
+joint_rate
+```
+These allow direct comparison between the two geometries.
+
+## Example Results (IBM Marrakesh)
+
+Typical observed results:
+```
+Model	coherent_rate	axis_consistency	A_good_rate	joint_rate
+one-hot	~0.86	~0.96	~0.57	~0.50
+two-hot	~0.84	~0.96	~0.53	~0.46
+```
 
 Observation:
+One-hot states maintain slightly higher coherence
+than two-hot states.
 
-One‑hot structures preserve coherence slightly better.
+Interpretation:
+This suggests that the tri-hypercube structure interacts differently with different geometric subsets of the hypercube.
+```
+One-hot states correspond to axis directions, where only one coordinate is active.
+Two-hot states correspond to face diagonals, where two coordinates are active simultaneously.
+```
+When two coordinates are active, more parity relations are affected simultaneously, which slightly increases the probability that noise breaks the structural constraint.
+In practice this means:
+Axis-aligned structures are slightly more robust than diagonal structures under realistic hardware noise.
+
+## Geometric Interpretation
+
+In the hypercube representation:
+```
+one-hot → axes of the hypercube
+two-hot → diagonals of faces
+```
+Grover amplification therefore selects different geometric families of states.
+This experiment shows that the geometry of the selected subset influences structural stability.
+
+## Result Files
+
+Example outputs:
+```
+tri_hypercube_onehot_vs_twohot_20260314_211217.json
+```
+These files contain the measured metrics for both subsets.
+
+## Role in the Project
+
+This experiment completes the structural exploration by showing that:
+- the tri-hypercube model defines a coherent subspace
+- Grover amplification can select subsets within that space
+- the geometry of those subsets affects how well the structure survives hardware noise
+
+This observation motivates the final component of the repository:
+```
+Structured Coherence Certificate
+```
+which summarizes structural performance of a quantum backend using these metrics.
 
 ---
 
