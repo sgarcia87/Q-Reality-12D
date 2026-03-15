@@ -10,15 +10,12 @@ Repository: https://github.com/sgarcia87/Q-Reality-12D
 # Overview
 
 This folder contains the **quantum implementation and experimental validation** of the **Tri‑Hypercube structural model** introduced in the Q‑Reality‑12D project.
-
 The goal of the work is to explore how a **triadic structural constraint** behaves:
-
 • mathematically  
 • combinatorially  
 • and on **real quantum hardware (NISQ devices)**
 
 The project evolved through three stages:
-
 1. **Classical model exploration**
 2. **Quantum circuit implementation**
 3. **Structural coherence benchmarking**
@@ -28,19 +25,19 @@ The project evolved through three stages:
 # Core Idea
 
 The model uses three blocks of binary variables:
-
+```
 A = (A1, A2, A3, A4)  
 B = (B1, B2, B3, B4)  
 C = (C1, C2, C3, C4)
-
+```
 with the structural constraint:
-
+```
 C_i = A_i XOR B_i
-
+```
 This implies the parity relation:
-
+```
 A_i XOR B_i XOR C_i = 0
-
+```
 Each axis forms a **triadic relation**.
 
 ---
@@ -48,16 +45,116 @@ Each axis forms a **triadic relation**.
 # Dimensional Reduction
 
 Without constraints:
-
+```
 2^12 = 4096 states
-
+```
 With the four parity relations:
-
+```
 2^(12 − 4) = 256 coherent states
-
+```
 Therefore the system defines a **coherent subspace of dimension 8** embedded in a 12‑bit space.
-
 This subspace is the object studied in both the classical and quantum experiments.
+
+---
+# Mathematical Model
+
+The core of the project is a structural model defined on 12 binary variables grouped into three blocks of four variables.
+
+Let
+```
+A = (A₁, A₂, A₃, A₄)
+B = (B₁, B₂, B₃, B₄)
+C = (C₁, C₂, C₃, C₄)
+```
+Each axis of the system satisfies the triadic relation
+```
+Cᵢ = Aᵢ ⊕ Bᵢ
+```
+which is equivalent to the parity constraint
+```
+Aᵢ ⊕ Bᵢ ⊕ Cᵢ = 0
+```
+for every axis 𝑖 = 1,2,3,4
+
+
+# Dimensional Structure
+
+Without constraints the full system contains
+```
+2¹² = 4096
+```
+possible states.
+
+The four parity constraints reduce the space to a coherent subspace
+```
+2^(12 − 4) = 256 states
+```
+Therefore the model can be described as
+```
+S = { (A,B,C) ∈ {0,1}¹² | C = A ⊕ B }
+```
+which defines an 8-dimensional binary subspace embedded in a 12-bit space.
+
+# Interpretation
+
+Each axis forms a triadic dependency between three variables:
+```
+(Aᵢ, Bᵢ, Cᵢ)
+```
+This dependency has the following information structure:
+```
+I(A;B) = 0
+I(A;C) = 0
+I(B;C) = 0
+```
+but
+```
+I(A;B | C) = 1
+```
+meaning that the relationship is not pairwise but triadic.
+
+# Relation to Quantum Circuits
+
+In the quantum experiments this constraint is implemented using CNOT gates:
+```
+qc.cx(A[i], C[i])
+qc.cx(B[i], C[i])
+```
+which computes
+```
+Cᵢ = Aᵢ XOR Bᵢ
+```
+and prepares states of the form
+```
+|A, B, A⊕B⟩
+```
+These states lie inside the coherent subspace defined by the parity relations.
+
+# Stabilizer Interpretation
+
+The parity relations correspond to stabilizer operators of the form
+```
+Z_Aᵢ Z_Bᵢ Z_Cᵢ
+```
+which define a parity-constrained subspace of 12 qubits.
+
+In this interpretation the model can be viewed as a simple example of a structured stabilizer subspace where coherence corresponds to the preservation of these parity constraints.
+
+# Geometric View
+
+Each block 𝐴,𝐵,𝐶 represents the vertices of a 4-dimensional hypercube.
+The triadic constraint couples the three hypercubes axis by axis.
+
+This structure can therefore be interpreted as three coupled 4-dimensional hypercubes forming a constrained 12-bit state space.
+
+# Role in the Experiments
+
+The experiments contained in this repository study:
+- whether this constrained subspace survives real quantum hardware noise
+- whether Grover amplification can bias the system toward structured subsets
+- how different geometric subsets affect coherence stability
+
+These experiments form the basis of the Structured Coherence Certificate benchmark included in this repository.
 
 ---
 
