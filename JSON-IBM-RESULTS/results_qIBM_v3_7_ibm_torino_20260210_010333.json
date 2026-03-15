@@ -1,0 +1,99 @@
+{
+  "timestamp": "20260210_010333",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "optimization_level": 1,
+  "variant": "v3.7 (amplify nucleus + propagate bit-copy + propagate relations)",
+  "cases": [
+    {
+      "label": "sign=+1 | hybrid(bits+relations) | k=0",
+      "sign": 1,
+      "k": 0,
+      "compiled": {
+        "depth": 75,
+        "ops": {
+          "sx": 78,
+          "rz": 52,
+          "cz": 42,
+          "measure": 12
+        }
+      },
+      "job_id": "d657blrtraac73bja1ig",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.267822265625,
+        "avg_bit_exact": 0.8770751953125,
+        "avg_bit_parity": 0.8770751953125,
+        "avg_rel_consistency": 0.90667724609375
+      }
+    },
+    {
+      "label": "sign=+1 | hybrid(bits+relations) | k=1",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 388,
+        "ops": {
+          "sx": 286,
+          "rz": 231,
+          "cz": 152,
+          "measure": 12,
+          "x": 4
+        }
+      },
+      "job_id": "d657bnbc4tus73fgmtug",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.528564453125,
+        "avg_bit_exact": 0.8773193359375,
+        "avg_bit_parity": 0.8773193359375,
+        "avg_rel_consistency": 0.90618896484375
+      }
+    },
+    {
+      "label": "sign=-1 | hybrid(bits+relations) | k=0",
+      "sign": -1,
+      "k": 0,
+      "compiled": {
+        "depth": 56,
+        "ops": {
+          "sx": 73,
+          "rz": 48,
+          "cz": 39,
+          "measure": 12
+        }
+      },
+      "job_id": "d657bp7s6ggc73fjvfrg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.232666015625,
+        "avg_bit_exact": 0.88665771484375,
+        "avg_bit_parity": 0.88665771484375,
+        "avg_rel_consistency": 0.90460205078125
+      }
+    },
+    {
+      "label": "sign=-1 | hybrid(bits+relations) | k=1",
+      "sign": -1,
+      "k": 1,
+      "compiled": {
+        "depth": 399,
+        "ops": {
+          "sx": 277,
+          "rz": 226,
+          "cz": 149,
+          "measure": 12,
+          "x": 4
+        }
+      },
+      "job_id": "d657bqqo8gvs73f5bn6g",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.493896484375,
+        "avg_bit_exact": 0.84429931640625,
+        "avg_bit_parity": 0.84429931640625,
+        "avg_rel_consistency": 0.88665771484375
+      }
+    }
+  ]
+}

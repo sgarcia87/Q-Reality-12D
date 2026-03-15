@@ -1,0 +1,195 @@
+{
+  "timestamp": "20260210_001916",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "optimization_level": 1,
+  "variant": "v3.5 (M=2 patterns per sign, single-run per case)",
+  "good_plus": [
+    "0001",
+    "0010"
+  ],
+  "good_minus": [
+    "1110",
+    "1101"
+  ],
+  "cases": [
+    {
+      "label": "sign=+1 | copy_before | k=0",
+      "sign": 1,
+      "copy_after": false,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656mtns6ggc73fjuqeg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.272216796875,
+        "avg_exact_axes": 0.91339111328125,
+        "avg_parity_axes": 0.5211181640625
+      }
+    },
+    {
+      "label": "sign=+1 | copy_before | k=1",
+      "sign": 1,
+      "copy_after": false,
+      "k": 1,
+      "compiled": {
+        "depth": 337,
+        "ops": {
+          "sx": 226,
+          "rz": 199,
+          "cz": 110,
+          "measure": 12
+        }
+      },
+      "job_id": "d656mvao8gvs73f5b240",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.244140625,
+        "avg_exact_axes": 0.506103515625,
+        "avg_parity_axes": 0.51312255859375
+      }
+    },
+    {
+      "label": "sign=+1 | copy_after | k=0",
+      "sign": 1,
+      "copy_after": true,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656n1btraac73bj9cf0",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.277587890625,
+        "avg_exact_axes": 0.911865234375,
+        "avg_parity_axes": 0.52337646484375
+      }
+    },
+    {
+      "label": "sign=+1 | copy_after | k=1",
+      "sign": 1,
+      "copy_after": true,
+      "k": 1,
+      "compiled": {
+        "depth": 222,
+        "ops": {
+          "sx": 156,
+          "rz": 140,
+          "cz": 80,
+          "measure": 12,
+          "x": 1
+        }
+      },
+      "job_id": "d656n2rc4tus73fgm7u0",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.517333984375,
+        "avg_exact_axes": 0.89312744140625,
+        "avg_parity_axes": 0.608642578125
+      }
+    },
+    {
+      "label": "sign=-1 | copy_before | k=0",
+      "sign": -1,
+      "copy_after": false,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656n4rtraac73bj9ck0",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.22412109375,
+        "avg_exact_axes": 0.91754150390625,
+        "avg_parity_axes": 0.52728271484375
+      }
+    },
+    {
+      "label": "sign=-1 | copy_before | k=1",
+      "sign": -1,
+      "copy_after": false,
+      "k": 1,
+      "compiled": {
+        "depth": 315,
+        "ops": {
+          "rz": 195,
+          "sx": 195,
+          "cz": 95,
+          "measure": 12
+        }
+      },
+      "job_id": "d656n6rtraac73bj9cmg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.200927734375,
+        "avg_exact_axes": 0.5726318359375,
+        "avg_parity_axes": 0.52545166015625
+      }
+    },
+    {
+      "label": "sign=-1 | copy_after | k=0",
+      "sign": -1,
+      "copy_after": true,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656n8jc4tus73fgm840",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.227294921875,
+        "avg_exact_axes": 0.91070556640625,
+        "avg_parity_axes": 0.52728271484375
+      }
+    },
+    {
+      "label": "sign=-1 | copy_after | k=1",
+      "sign": -1,
+      "copy_after": true,
+      "k": 1,
+      "compiled": {
+        "depth": 201,
+        "ops": {
+          "sx": 161,
+          "rz": 142,
+          "cz": 83,
+          "measure": 12,
+          "x": 1
+        }
+      },
+      "job_id": "d656nabtraac73bj9crg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.49951171875,
+        "avg_exact_axes": 0.854736328125,
+        "avg_parity_axes": 0.404052734375
+      }
+    }
+  ]
+}

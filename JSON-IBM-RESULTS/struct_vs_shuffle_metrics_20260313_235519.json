@@ -1,0 +1,23 @@
+{
+  "backend": "ibm_torino",
+  "structured": {
+    "job": "d6q9bdcu243c73a00d50",
+    "metrics": {
+      "P_good_base": 0.515869140625,
+      "avg_bit_exact": 0.81561279296875,
+      "avg_rel1_consistency": 0.50103759765625,
+      "avg_rel2_consistency": 0.51275634765625,
+      "avg_rel_consistency": 0.50689697265625
+    }
+  },
+  "shuffled": {
+    "job": "d6q9bk3opkic73fho7c0",
+    "metrics": {
+      "P_good_base": 0.539306640625,
+      "avg_bit_exact": 0.8126220703125,
+      "avg_rel1_consistency": 0.47174072265625,
+      "avg_rel2_consistency": 0.46868896484375,
+      "avg_rel_consistency": 0.47021484375
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "timestamp": "20260314_175858",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "optimization_level": 1,
+  "variant": "v3.7 full (16q): nucleus + bitcopy + rel1 + rel2",
+  "cases": [
+    {
+      "label": "sign=+1 | v3.7_full | k=0",
+      "sign": 1,
+      "k": 0,
+      "compiled": {
+        "depth": 128,
+        "ops": {
+          "sx": 164,
+          "cz": 89,
+          "rz": 80,
+          "measure": 16
+        }
+      },
+      "job_id": "d6qp7lq0q0ls73cskc30",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.28369140625,
+        "avg_bit_exact": 0.830322265625,
+        "avg_rel1_consistency": 0.8040771484375,
+        "avg_rel2_consistency": 0.8671875,
+        "avg_rel_consistency": 0.83563232421875
+      }
+    },
+    {
+      "label": "sign=+1 | v3.7_full | k=1",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 458,
+        "ops": {
+          "sx": 340,
+          "rz": 262,
+          "cz": 183,
+          "measure": 16,
+          "x": 4
+        }
+      },
+      "job_id": "d6qp7qbopkic73fibf60",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.551025390625,
+        "avg_bit_exact": 0.8302001953125,
+        "avg_rel1_consistency": 0.8367919921875,
+        "avg_rel2_consistency": 0.90478515625,
+        "avg_rel_consistency": 0.87078857421875
+      }
+    },
+    {
+      "label": "sign=-1 | v3.7_full | k=0",
+      "sign": -1,
+      "k": 0,
+      "compiled": {
+        "depth": 131,
+        "ops": {
+          "sx": 178,
+          "cz": 95,
+          "rz": 84,
+          "measure": 16
+        }
+      },
+      "job_id": "d6qp7tnr88ds73dcmg50",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.222900390625,
+        "avg_bit_exact": 0.84613037109375,
+        "avg_rel1_consistency": 0.8880615234375,
+        "avg_rel2_consistency": 0.90203857421875,
+        "avg_rel_consistency": 0.895050048828125
+      }
+    },
+    {
+      "label": "sign=-1 | v3.7_full | k=1",
+      "sign": -1,
+      "k": 1,
+      "compiled": {
+        "depth": 416,
+        "ops": {
+          "sx": 366,
+          "rz": 250,
+          "cz": 197,
+          "measure": 16,
+          "x": 4
+        }
+      },
+      "job_id": "d6qp81ropkic73fibffg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.4990234375,
+        "avg_bit_exact": 0.80462646484375,
+        "avg_rel1_consistency": 0.8355712890625,
+        "avg_rel2_consistency": 0.8851318359375,
+        "avg_rel_consistency": 0.8603515625
+      }
+    }
+  ]
+}

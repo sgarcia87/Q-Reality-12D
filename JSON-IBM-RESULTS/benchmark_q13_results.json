@@ -1,0 +1,87 @@
+{
+  "module": "/home/aqql3/Escritorio/QUANTUM/Q13_V2T.py",
+  "shots": 4096,
+  "opt_level": 1,
+  "seed": 1234,
+  "results": [
+    {
+      "name": "structural",
+      "shots": 4096,
+      "exact_match": 1.0,
+      "ber": 0.0,
+      "rel_consistency": 1.0,
+      "depth": 290,
+      "size": 1645,
+      "count_ops": {
+        "cx": 720,
+        "u2": 432,
+        "x": 289,
+        "ccx": 144,
+        "mcphase": 36,
+        "h": 12,
+        "measure": 12
+      },
+      "top_state": "000100010001",
+      "top_count": 557,
+      "good_shots": 4096
+    },
+    {
+      "name": "ghz",
+      "shots": 4096,
+      "exact_match": 0.0,
+      "ber": 0.25,
+      "rel_consistency": 0.9230769230769231,
+      "depth": 13,
+      "size": 24,
+      "count_ops": {
+        "measure": 12,
+        "cx": 11,
+        "h": 1
+      },
+      "top_state": "000000000000",
+      "top_count": 2056,
+      "good_shots": 0
+    },
+    {
+      "name": "random",
+      "shots": 4096,
+      "exact_match": 0.0,
+      "ber": 0.29565429687499983,
+      "rel_consistency": 0.49896709735576883,
+      "depth": 71,
+      "size": 153,
+      "count_ops": {
+        "cx": 71,
+        "u2": 25,
+        "h": 22,
+        "measure": 12,
+        "s": 11,
+        "x": 4,
+        "y": 3,
+        "swap": 3,
+        "z": 2
+      },
+      "top_state": "111111001110",
+      "top_count": 13,
+      "good_shots": 0
+    },
+    {
+      "name": "copy",
+      "shots": 4096,
+      "exact_match": 0.490966796875,
+      "ber": 0.12725830078125,
+      "rel_consistency": 0.9608435997596154,
+      "depth": 4,
+      "size": 24,
+      "count_ops": {
+        "measure": 12,
+        "cx": 8,
+        "h": 3,
+        "u2": 1
+      },
+      "top_state": "000100010001",
+      "top_count": 291,
+      "good_shots": 2011
+    }
+  ]
+}

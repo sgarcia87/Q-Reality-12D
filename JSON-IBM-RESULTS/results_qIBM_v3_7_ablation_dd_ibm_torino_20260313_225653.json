@@ -1,0 +1,167 @@
+{
+  "timestamp": "20260313_225653",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "optimization_level": 1,
+  "experiment": "V3.7 ablation: core vs core_rel1 vs full, with optional DD",
+  "cases": [
+    {
+      "label": "variant=core | dd=none | sign=+1 | k=1",
+      "variant": "core",
+      "dd_mode": "none",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 626,
+        "ops": {
+          "sx": 369,
+          "rz": 268,
+          "cz": 181,
+          "measure": 4
+        }
+      },
+      "job_id": "d6q8g9su243c739vvbd0",
+      "metrics": {
+        "P_good_base": 0.588134765625,
+        "avg_bit_exact": 0.0,
+        "avg_rel1_consistency": 0.0,
+        "avg_rel2_consistency": 0.0,
+        "avg_rel_consistency": 0.0,
+        "shots": 4096
+      }
+    },
+    {
+      "label": "variant=core | dd=xx | sign=+1 | k=1",
+      "variant": "core",
+      "dd_mode": "xx",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 498,
+        "ops": {
+          "delay": 352,
+          "rz": 257,
+          "sx": 232,
+          "x": 138,
+          "cz": 112,
+          "measure": 4
+        }
+      },
+      "job_id": "d6q8gc3opkic73fhn4vg",
+      "metrics": {
+        "P_good_base": 0.480224609375,
+        "avg_bit_exact": 0.0,
+        "avg_rel1_consistency": 0.0,
+        "avg_rel2_consistency": 0.0,
+        "avg_rel_consistency": 0.0,
+        "shots": 4096
+      }
+    },
+    {
+      "label": "variant=core_rel1 | dd=none | sign=+1 | k=1",
+      "variant": "core_rel1",
+      "dd_mode": "none",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 455,
+        "ops": {
+          "sx": 319,
+          "rz": 239,
+          "cz": 172,
+          "measure": 12,
+          "x": 4
+        }
+      },
+      "job_id": "d6q8gdropkic73fhn52g",
+      "metrics": {
+        "P_good_base": 0.4267578125,
+        "avg_bit_exact": 0.8515625,
+        "avg_rel1_consistency": 0.87078857421875,
+        "avg_rel2_consistency": 0.0,
+        "avg_rel_consistency": 0.87078857421875,
+        "shots": 4096
+      }
+    },
+    {
+      "label": "variant=core_rel1 | dd=xx | sign=+1 | k=1",
+      "variant": "core_rel1",
+      "dd_mode": "xx",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 474,
+        "ops": {
+          "delay": 379,
+          "sx": 304,
+          "rz": 242,
+          "cz": 163,
+          "x": 153,
+          "measure": 12
+        }
+      },
+      "job_id": "d6q8gfjopkic73fhn56g",
+      "metrics": {
+        "P_good_base": 0.377685546875,
+        "avg_bit_exact": 0.83013916015625,
+        "avg_rel1_consistency": 0.86566162109375,
+        "avg_rel2_consistency": 0.0,
+        "avg_rel_consistency": 0.86566162109375,
+        "shots": 4096
+      }
+    },
+    {
+      "label": "variant=full | dd=none | sign=+1 | k=1",
+      "variant": "full",
+      "dd_mode": "none",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 453,
+        "ops": {
+          "sx": 370,
+          "rz": 265,
+          "cz": 198,
+          "measure": 16,
+          "x": 5
+        }
+      },
+      "job_id": "d6q8ghku243c739vvbog",
+      "metrics": {
+        "P_good_base": 0.363525390625,
+        "avg_bit_exact": 0.81732177734375,
+        "avg_rel1_consistency": 0.86480712890625,
+        "avg_rel2_consistency": 0.8917236328125,
+        "avg_rel_consistency": 0.878265380859375,
+        "shots": 4096
+      }
+    },
+    {
+      "label": "variant=full | dd=xx | sign=+1 | k=1",
+      "variant": "full",
+      "dd_mode": "xx",
+      "sign": 1,
+      "k": 1,
+      "compiled": {
+        "depth": 483,
+        "ops": {
+          "delay": 463,
+          "sx": 407,
+          "rz": 262,
+          "x": 217,
+          "cz": 216,
+          "measure": 16
+        }
+      },
+      "job_id": "d6q8gjbopkic73fhn5c0",
+      "metrics": {
+        "P_good_base": 0.339111328125,
+        "avg_bit_exact": 0.76300048828125,
+        "avg_rel1_consistency": 0.8109130859375,
+        "avg_rel2_consistency": 0.85205078125,
+        "avg_rel_consistency": 0.83148193359375,
+        "shots": 4096
+      }
+    }
+  ]
+}

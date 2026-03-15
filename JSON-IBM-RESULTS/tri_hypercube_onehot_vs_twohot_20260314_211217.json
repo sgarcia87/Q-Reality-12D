@@ -1,0 +1,15 @@
+{
+  "backend": "ibm_marrakesh",
+  "one_hot": {
+    "coherent_rate": 0.86279296875,
+    "axis_consistency": 0.9630126953125,
+    "A_good_rate": 0.566650390625,
+    "joint_rate": 0.495849609375
+  },
+  "two_hot": {
+    "coherent_rate": 0.843017578125,
+    "axis_consistency": 0.95806884765625,
+    "A_good_rate": 0.533935546875,
+    "joint_rate": 0.458984375
+  }
+}

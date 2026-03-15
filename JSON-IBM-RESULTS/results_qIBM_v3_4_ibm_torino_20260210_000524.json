@@ -1,0 +1,189 @@
+{
+  "timestamp": "20260210_000524",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "optimization_level": 1,
+  "variant": "v3.4 (mcp oracle+diffusion, single-run per case)",
+  "cases": [
+    {
+      "label": "sign=+1 | copy_before | k=0",
+      "sign": 1,
+      "copy_after": false,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656gdjc4tus73fgm120",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.321533203125,
+        "avg_exact_axes": 0.929931640625,
+        "avg_parity_axes": 0.52996826171875
+      }
+    },
+    {
+      "label": "sign=+1 | copy_before | k=1",
+      "sign": 1,
+      "copy_after": false,
+      "k": 1,
+      "compiled": {
+        "depth": 726,
+        "ops": {
+          "sx": 486,
+          "rz": 423,
+          "cz": 246,
+          "measure": 12,
+          "x": 2
+        }
+      },
+      "job_id": "d656gpjc4tus73fgm1d0",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.43408203125,
+        "avg_exact_axes": 0.38397216796875,
+        "avg_parity_axes": 0.505859375
+      }
+    },
+    {
+      "label": "sign=+1 | copy_after | k=0",
+      "sign": 1,
+      "copy_after": true,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656grbc4tus73fgm1gg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.319091796875,
+        "avg_exact_axes": 0.92181396484375,
+        "avg_parity_axes": 0.5338134765625
+      }
+    },
+    {
+      "label": "sign=+1 | copy_after | k=1",
+      "sign": 1,
+      "copy_after": true,
+      "k": 1,
+      "compiled": {
+        "depth": 731,
+        "ops": {
+          "sx": 532,
+          "rz": 412,
+          "cz": 270,
+          "measure": 12,
+          "x": 1
+        }
+      },
+      "job_id": "d656gt3traac73bj9670",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.553955078125,
+        "avg_exact_axes": 0.88043212890625,
+        "avg_parity_axes": 0.58502197265625
+      }
+    },
+    {
+      "label": "sign=-1 | copy_before | k=0",
+      "sign": -1,
+      "copy_after": false,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656h0fs6ggc73fjukbg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.271240234375,
+        "avg_exact_axes": 0.923583984375,
+        "avg_parity_axes": 0.529541015625
+      }
+    },
+    {
+      "label": "sign=-1 | copy_before | k=1",
+      "sign": -1,
+      "copy_after": false,
+      "k": 1,
+      "compiled": {
+        "depth": 746,
+        "ops": {
+          "sx": 478,
+          "rz": 420,
+          "cz": 243,
+          "measure": 12,
+          "x": 3
+        }
+      },
+      "job_id": "d656h37s6ggc73fjukeg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.382080078125,
+        "avg_exact_axes": 0.372802734375,
+        "avg_parity_axes": 0.523681640625
+      }
+    },
+    {
+      "label": "sign=-1 | copy_after | k=0",
+      "sign": -1,
+      "copy_after": true,
+      "k": 0,
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "job_id": "d656h53c4tus73fgm1pg",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.26416015625,
+        "avg_exact_axes": 0.9228515625,
+        "avg_parity_axes": 0.536865234375
+      }
+    },
+    {
+      "label": "sign=-1 | copy_after | k=1",
+      "sign": -1,
+      "copy_after": true,
+      "k": 1,
+      "compiled": {
+        "depth": 731,
+        "ops": {
+          "sx": 526,
+          "rz": 415,
+          "cz": 267,
+          "measure": 12,
+          "x": 1
+        }
+      },
+      "job_id": "d656horc4tus73fgm2h0",
+      "metrics": {
+        "shots": 4096,
+        "P_good_base": 0.472412109375,
+        "avg_exact_axes": 0.81060791015625,
+        "avg_parity_axes": 0.46685791015625
+      }
+    }
+  ]
+}

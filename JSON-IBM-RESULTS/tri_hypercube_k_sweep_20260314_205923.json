@@ -1,0 +1,35 @@
+{
+  "backend": "ibm_marrakesh",
+  "results": [
+    {
+      "k": 0,
+      "job_id": "d6qrrqcu243c73a0mka0",
+      "metrics": {
+        "coherent_rate": 0.859619140625,
+        "axis_consistency": 0.96368408203125,
+        "A_good_rate": 0.250732421875,
+        "joint_rate": 0.217041015625
+      }
+    },
+    {
+      "k": 1,
+      "job_id": "d6qrrvi0q0ls73csnbj0",
+      "metrics": {
+        "coherent_rate": 0.861083984375,
+        "axis_consistency": 0.9630126953125,
+        "A_good_rate": 0.61865234375,
+        "joint_rate": 0.5439453125
+      }
+    },
+    {
+      "k": 2,
+      "job_id": "d6qrs47r88ds73dcpg60",
+      "metrics": {
+        "coherent_rate": 0.861572265625,
+        "axis_consistency": 0.96343994140625,
+        "A_good_rate": 0.373779296875,
+        "joint_rate": 0.32275390625
+      }
+    }
+  ]
+}

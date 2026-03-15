@@ -1,0 +1,477 @@
+{
+  "timestamp": "20260209_234233",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "repeats": 3,
+  "optimization_level": 1,
+  "cases": [
+    {
+      "case": {
+        "sign": 1,
+        "copy_after": false,
+        "grover_iters": 0,
+        "opt_level": 1
+      },
+      "label": "sign=+1 | copy_before | k=0",
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d6565mrtraac73bj8qkg",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.361083984375,
+            "avg_exact_axes": 0.90802001953125,
+            "avg_parity_axes": 0.5572509765625
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d6565orc4tus73fglljg",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.35009765625,
+            "avg_exact_axes": 0.9080810546875,
+            "avg_parity_axes": 0.54974365234375
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d6565qjc4tus73fglll0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.3408203125,
+            "avg_exact_axes": 0.90423583984375,
+            "avg_parity_axes": 0.5445556640625
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.3506673177083333,
+        "P_good_base_std": 0.010143839761019954,
+        "avg_exact_axes_mean": 0.9067789713541666,
+        "avg_exact_axes_std": 0.002202627915021108,
+        "avg_parity_axes_mean": 0.5505167643229166,
+        "avg_parity_axes_std": 0.006382868984039412
+      }
+    },
+    {
+      "case": {
+        "sign": 1,
+        "copy_after": false,
+        "grover_iters": 1,
+        "opt_level": 1
+      },
+      "label": "sign=+1 | copy_before | k=1",
+      "compiled": {
+        "depth": 554,
+        "ops": {
+          "sx": 323,
+          "rz": 300,
+          "cz": 159,
+          "measure": 12,
+          "x": 1
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d6565sfs6ggc73fju8p0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.451416015625,
+            "avg_exact_axes": 0.53460693359375,
+            "avg_parity_axes": 0.5140380859375
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d6565ujc4tus73fgllsg",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.453369140625,
+            "avg_exact_axes": 0.53741455078125,
+            "avg_parity_axes": 0.52227783203125
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d65660btraac73bj8qvg",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.453125,
+            "avg_exact_axes": 0.54937744140625,
+            "avg_parity_axes": 0.5140380859375
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.45263671875,
+        "P_good_base_std": 0.0010641843123878599,
+        "avg_exact_axes_mean": 0.54046630859375,
+        "avg_exact_axes_std": 0.007843908118367843,
+        "avg_parity_axes_mean": 0.51678466796875,
+        "avg_parity_axes_std": 0.00475721962528073
+      }
+    },
+    {
+      "case": {
+        "sign": 1,
+        "copy_after": true,
+        "grover_iters": 0,
+        "opt_level": 1
+      },
+      "label": "sign=+1 | copy_after | k=0",
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d656627s6ggc73fju920",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.348876953125,
+            "avg_exact_axes": 0.900634765625,
+            "avg_parity_axes": 0.55230712890625
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d65663qo8gvs73f5ah70",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.33935546875,
+            "avg_exact_axes": 0.9056396484375,
+            "avg_parity_axes": 0.54278564453125
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d65666fs6ggc73fju96g",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.329833984375,
+            "avg_exact_axes": 0.90557861328125,
+            "avg_parity_axes": 0.540283203125
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.33935546875,
+        "P_good_base_std": 0.009521484375,
+        "avg_exact_axes_mean": 0.9039510091145834,
+        "avg_exact_axes_std": 0.0028721132436287217,
+        "avg_parity_axes_mean": 0.5451253255208334,
+        "avg_parity_axes_std": 0.0063442318800636015
+      }
+    },
+    {
+      "case": {
+        "sign": 1,
+        "copy_after": true,
+        "grover_iters": 1,
+        "opt_level": 1
+      },
+      "label": "sign=+1 | copy_after | k=1",
+      "compiled": {
+        "depth": 405,
+        "ops": {
+          "sx": 278,
+          "rz": 232,
+          "cz": 145,
+          "measure": 12,
+          "x": 4
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d656683c4tus73fglm70",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.633544921875,
+            "avg_exact_axes": 0.821533203125,
+            "avg_parity_axes": 0.6094970703125
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d65669rtraac73bj8rcg",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.606689453125,
+            "avg_exact_axes": 0.8216552734375,
+            "avg_parity_axes": 0.60577392578125
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d6566bjtraac73bj8rf0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.63330078125,
+            "avg_exact_axes": 0.82135009765625,
+            "avg_parity_axes": 0.612060546875
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.62451171875,
+        "P_good_base_std": 0.01543501749811889,
+        "avg_exact_axes_mean": 0.8215128580729166,
+        "avg_exact_axes_std": 0.00015360177480612693,
+        "avg_parity_axes_mean": 0.6091105143229166,
+        "avg_parity_axes_std": 0.003161086892811976
+      }
+    },
+    {
+      "case": {
+        "sign": -1,
+        "copy_after": false,
+        "grover_iters": 0,
+        "opt_level": 1
+      },
+      "label": "sign=-1 | copy_before | k=0",
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d6566e2o8gvs73f5ahig",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.281494140625,
+            "avg_exact_axes": 0.8929443359375,
+            "avg_parity_axes": 0.54833984375
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d6566frc4tus73fglmh0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.276611328125,
+            "avg_exact_axes": 0.89532470703125,
+            "avg_parity_axes": 0.54730224609375
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d6566hio8gvs73f5ahn0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.27587890625,
+            "avg_exact_axes": 0.906005859375,
+            "avg_parity_axes": 0.541748046875
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.2779947916666667,
+        "P_good_base_std": 0.0030525715061053144,
+        "avg_exact_axes_mean": 0.8980916341145834,
+        "avg_exact_axes_std": 0.006956490691465998,
+        "avg_parity_axes_mean": 0.5457967122395834,
+        "avg_parity_axes_std": 0.003544421059897708
+      }
+    },
+    {
+      "case": {
+        "sign": -1,
+        "copy_after": false,
+        "grover_iters": 1,
+        "opt_level": 1
+      },
+      "label": "sign=-1 | copy_before | k=1",
+      "compiled": {
+        "depth": 521,
+        "ops": {
+          "rz": 296,
+          "sx": 285,
+          "cz": 141,
+          "measure": 12,
+          "x": 1
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d6566jio8gvs73f5ahp0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.33642578125,
+            "avg_exact_axes": 0.5140380859375,
+            "avg_parity_axes": 0.54833984375
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d6566m7s6ggc73fju9ng",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.340576171875,
+            "avg_exact_axes": 0.5108642578125,
+            "avg_parity_axes": 0.5457763671875
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d6566nqo8gvs73f5ahtg",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.34375,
+            "avg_exact_axes": 0.5125732421875,
+            "avg_parity_axes": 0.54376220703125
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.3402506510416667,
+        "P_good_base_std": 0.00367294404179582,
+        "avg_exact_axes_mean": 0.5124918619791666,
+        "avg_exact_axes_std": 0.001588478295568289,
+        "avg_parity_axes_mean": 0.54595947265625,
+        "avg_parity_axes_std": 0.0022943049474136354
+      }
+    },
+    {
+      "case": {
+        "sign": -1,
+        "copy_after": true,
+        "grover_iters": 0,
+        "opt_level": 1
+      },
+      "label": "sign=-1 | copy_after | k=0",
+      "compiled": {
+        "depth": 9,
+        "ops": {
+          "rz": 40,
+          "sx": 20,
+          "measure": 12,
+          "cz": 8
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d6566pjc4tus73fglms0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.269775390625,
+            "avg_exact_axes": 0.903564453125,
+            "avg_parity_axes": 0.54803466796875
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d6566rbc4tus73fglmv0",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.271484375,
+            "avg_exact_axes": 0.90228271484375,
+            "avg_parity_axes": 0.54669189453125
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d6566ubc4tus73fgln2g",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.266357421875,
+            "avg_exact_axes": 0.89971923828125,
+            "avg_parity_axes": 0.55303955078125
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.2692057291666667,
+        "P_good_base_std": 0.002610516753311432,
+        "avg_exact_axes_mean": 0.90185546875,
+        "avg_exact_axes_std": 0.0019578875649835744,
+        "avg_parity_axes_mean": 0.54925537109375,
+        "avg_parity_axes_std": 0.003345261134288262
+      }
+    },
+    {
+      "case": {
+        "sign": -1,
+        "copy_after": true,
+        "grover_iters": 1,
+        "opt_level": 1
+      },
+      "label": "sign=-1 | copy_after | k=1",
+      "compiled": {
+        "depth": 341,
+        "ops": {
+          "rz": 217,
+          "sx": 205,
+          "cz": 107,
+          "measure": 12,
+          "x": 4
+        }
+      },
+      "runs": [
+        {
+          "rep": 1,
+          "job_id": "d6566vqo8gvs73f5ai6g",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.587890625,
+            "avg_exact_axes": 0.75762939453125,
+            "avg_parity_axes": 0.45721435546875
+          }
+        },
+        {
+          "rep": 2,
+          "job_id": "d65671rc4tus73fgln7g",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.616943359375,
+            "avg_exact_axes": 0.76568603515625,
+            "avg_parity_axes": 0.44354248046875
+          }
+        },
+        {
+          "rep": 3,
+          "job_id": "d65673ns6ggc73fjua80",
+          "metrics": {
+            "shots": 4096,
+            "P_good_base": 0.634521484375,
+            "avg_exact_axes": 0.76055908203125,
+            "avg_parity_axes": 0.4521484375
+          }
+        }
+      ],
+      "stats": {
+        "P_good_base_mean": 0.6131184895833334,
+        "P_good_base_std": 0.023549553779321584,
+        "avg_exact_axes_mean": 0.76129150390625,
+        "avg_exact_axes_std": 0.004077952414182145,
+        "avg_parity_axes_mean": 0.4509684244791667,
+        "avg_parity_axes_std": 0.006911900212742398
+      }
+    }
+  ]
+}
