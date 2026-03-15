@@ -406,7 +406,6 @@ joint_rate
 conditional metrics
 SCB score
 Example output file:
-Copiar código
 
 structured_coherence_certificate_20260315_003254.json
 These files allow full reproducibility and cross-backend comparison.
