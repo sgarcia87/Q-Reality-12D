@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tri-hipercubo dual v0.5</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 24px; line-height: 1.45; color: #222; }
+h1,h2 { margin-bottom: 0.4rem; }
+.card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 14px 0; }
+table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 14px; }
+th { background: #f6f6f6; }
+code { background: #f6f6f6; padding: 2px 5px; border-radius: 4px; }
+.small { color: #666; font-size: 13px; }
+.ok { color: #0a7a24; font-weight: 700; }
+.no { color: #a11; font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>Modelo tri-hipercúbico dual · v0.5</h1>
+<p class="small">Versión centrada en coherencia, espectro, simetrías e invariantes.</p>
+
+<div class="card">
+<h2>Estructura del sistema</h2>
+<ul>
+<li>Hipercubo elemental: <b>16</b> estados</li>
+<li>Espacio bruto teórico: <b>4096</b></li>
+<li>Subespacio coherente: <b>256</b></li>
+<li>Dimensiones estructurales: <b>12</b></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Doble métrica</h2>
+<ul>
+<li>Relaciones dirigidas: <b>144</b></li>
+<li>No dirigidas sin diagonal: <b>66</b></li>
+<li>Diagonales: <b>12</b></li>
+<li>No dirigidas con diagonal: <b>78</b></li>
+<li>Relaciones estructurales simbólicas: <b>72</b></li>
+<li>Residuo 78 − 72: <b>6</b></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Invariantes</h2>
+<ul>
+<li>a_i·b_i·c_i = 1 eje a eje: <span class="ok">True</span></li>
+<li>Suma única de a_i·b_i·c_i: <code>[4]</code></li>
+<li>Producto único de a_i·b_i·c_i: <code>[1]</code></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Simetrías naturales</h2>
+<ul>
+<li>Permutaciones coherentes dentro de bloques: <b>24/24</b></li>
+<li>Intercambio A ↔ B: <span class="ok">True</span></li>
+<li>Flip global 12 ejes: <span class="no">False</span></li>
+<li>Flip A y C: <span class="ok">True</span></li>
+<li>Flip B y C: <span class="ok">True</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Espectro</h2>
+<p><b>Correlación:</b> [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]</p>
+<p><b>Estructural:</b> [7.0, 3.0, 3.0, 3.0, 1.0, 1.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0]</p>
+</div>
+
+<div class="card">
+<h2>Embedding 3D de las 12 dimensiones (PCA sobre correlación)</h2>
+<table>
+<thead><tr><th>Dimensión</th><th>X</th><th>Y</th><th>Z</th></tr></thead>
+<tbody><tr><td>A1</td><td>-0.0</td><td>-0.0</td><td>0.0</td></tr><tr><td>A2</td><td>-0.27424163</td><td>-0.12361923</td><td>-0.05090582</td></tr><tr><td>A3</td><td>0.74725748</td><td>-0.30084101</td><td>0.11543194</td></tr><tr><td>A4</td><td>-0.04208098</td><td>0.16133526</td><td>0.53495249</td></tr><tr><td>B1</td><td>0.15446504</td><td>-0.08934002</td><td>-0.45410877</td></tr><tr><td>B2</td><td>-0.25190624</td><td>0.3272537</td><td>-0.0798559</td></tr><tr><td>B3</td><td>0.15446504</td><td>0.63306296</td><td>-0.41154639</td></tr><tr><td>B4</td><td>-0.31963479</td><td>-0.54158589</td><td>-0.39355285</td></tr><tr><td>C1</td><td>0.15446504</td><td>-0.11401701</td><td>0.11564857</td></tr><tr><td>C2</td><td>0.07212492</td><td>0.01978982</td><td>0.13517098</td></tr><tr><td>C3</td><td>-0.0487206</td><td>0.16438162</td><td>0.17377087</td></tr><tr><td>C4</td><td>-0.34619327</td><td>-0.1364202</td><td>0.31499488</td></tr></tbody>
+</table>
+</div>
+</body>
+</html>

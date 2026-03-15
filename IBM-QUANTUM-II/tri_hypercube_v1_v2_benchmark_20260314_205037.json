@@ -1,0 +1,22 @@
+{
+  "backend": "ibm_marrakesh",
+  "v1": {
+    "shots": 4096,
+    "coherent_rate": 0.885498046875,
+    "axis_consistency": 0.96990966796875,
+    "A_good_rate": 0.2548828125,
+    "joint_rate": 0.228759765625
+  },
+  "v2": {
+    "shots": 4096,
+    "coherent_rate": 0.823974609375,
+    "axis_consistency": 0.95062255859375,
+    "A_good_rate": 0.41552734375,
+    "joint_rate": 0.345947265625
+  },
+  "baseline_A": 0.25,
+  "gain_A": 1.662109375,
+  "baseline_joint": 0.22137451171875,
+  "P_coherent_given_A": 0.8325499412455935,
+  "P_A_given_coherent": 0.41985185185185186
+}

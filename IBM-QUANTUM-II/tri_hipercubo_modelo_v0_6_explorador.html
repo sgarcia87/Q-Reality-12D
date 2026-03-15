@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tri-hipercubo dual v0.6</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 24px; line-height: 1.45; color: #222; }
+h1,h2 { margin-bottom: 0.4rem; }
+.card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 14px 0; }
+table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 14px; }
+th { background: #f6f6f6; }
+code { background: #f6f6f6; padding: 2px 5px; border-radius: 4px; }
+.small { color: #666; font-size: 13px; }
+.ok { color: #0a7a24; font-weight: 700; }
+.no { color: #a11; font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>Modelo tri-hipercúbico dual · v0.6</h1>
+<p class="small">Versión centrada en información mutua, triadas, automorfismos, distancias y embeddings.</p>
+
+<div class="card">
+<h2>Estructura e invariantes</h2>
+<ul>
+<li>Subespacio coherente: <b>256</b></li>
+<li>a_i·b_i·c_i = 1 eje a eje: <span class="ok">True</span></li>
+<li>Suma única de a_i·b_i·c_i: <code>[4]</code></li>
+<li>Producto único de a_i·b_i·c_i: <code>[1]</code></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Doble métrica</h2>
+<ul>
+<li>Relaciones dirigidas: <b>144</b></li>
+<li>No dirigidas sin diagonal: <b>66</b></li>
+<li>Diagonales: <b>12</b></li>
+<li>No dirigidas con diagonal: <b>78</b></li>
+<li>Relaciones estructurales simbólicas: <b>72</b></li>
+<li>Residuo 78 − 72: <b>6</b></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Información mutua y espectro</h2>
+<p><b>Espectro de la matriz de información mutua:</b> [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]</p>
+<p><b>Espectro de la matriz estructural:</b> [7.0, 3.0, 3.0, 3.0, 1.0, 1.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0]</p>
+<p class="small">Si la información mutua pairwise sale casi trivial, eso sugiere dependencia de orden superior en las triadas.</p>
+</div>
+
+<div class="card">
+<h2>Triadas (A_i, B_i, C_i)</h2>
+<table>
+<thead>
+<tr><th>Eje</th><th>H(A)</th><th>H(B)</th><th>H(C)</th><th>I(A;B)</th><th>I(A;C)</th><th>I(B;C)</th><th>I(A;B|C)</th><th>Sinergia</th><th>Interacción</th></tr>
+</thead>
+<tbody><tr><td>1</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>1.0</td><td>-1.0</td></tr><tr><td>2</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>1.0</td><td>-1.0</td></tr><tr><td>3</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>1.0</td><td>-1.0</td></tr><tr><td>4</td><td>1.0</td><td>1.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>1.0</td><td>-1.0</td></tr></tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>Automorfismos</h2>
+<ul>
+<li>Tamaño del grupo: <b>144</b></li>
+<li>Generadores evidentes:</li>
+<ul><li>Permutación simultánea de los 4 índices de eje en A, B y C (grupo S4).</li><li>Permutación de los tres bloques A, B y C en la matriz estructural por su simetría formal (grupo S3).</li><li>Composición de ambas familias, compatible con un tamaño 4! * 3! = 144.</li></ul>
+</ul>
+</div>
+
+<div class="card">
+<h2>Simetrías naturales</h2>
+<ul>
+<li>Permutaciones coherentes A/B/C: <b>24/24</b></li>
+<li>Intercambio A ↔ B: <span class="ok">True</span></li>
+<li>Flip global 12 ejes: <span class="no">False</span></li>
+<li>Flip A y C: <span class="ok">True</span></li>
+<li>Flip B y C: <span class="ok">True</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Estados coherentes: distancia de Hamming</h2>
+<ul>
+<li>Distancia media: <b>6.02352941</b></li>
+<li>Distancia mínima (fuera diagonal): <b>2.0</b></li>
+<li>Distancia máxima: <b>8.0</b></li>
+<li>Mejor k por silhouette: <b>4</b></li>
+<li>Silhouette: <b>0.2967033</b></li>
+<li>Tamaños de clusters: <code>{'0': 64, '1': 64, '2': 64, '3': 64}</code></li>
+</ul>
+</div>
+</body>
+</html>
