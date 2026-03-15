@@ -143,6 +143,125 @@ Result file:
 ```
 tri_hypercube_quantum_*.json
 ```
+The goal of this first experiment is to test whether the structural constraint of the tri-hypercube model can survive the noise of real quantum hardware.
+The classical model defines a triadic relation between three variables per axis:
+
+```
+C_i = A_i XOR B_i
+```
+which is equivalent to the parity constraint
+
+```
+A_i XOR B_i XOR C_i = 0
+```
+This relation must hold simultaneously for all four axes.
+In other words, the valid states of the system belong to a coherent subspace of dimension 256 inside the full 12-qubit space.
+The purpose of this experiment is simply:
+prepare states inside this constrained subspace and measure how often the hardware preserves the structural relations.
+
+## Circuit Structure
+
+The circuit uses 12 qubits divided into three groups:
+
+```
+A1 A2 A3 A4
+B1 B2 B3 B4
+C1 C2 C3 C4
+```
+The preparation procedure is:
+1- Create a uniform superposition over the registers A and B:
+```
+qc.h(A)
+qc.h(B)
+```
+This produces all possible states of A and B simultaneously.
+
+2- Compute register C from A and B using XOR relations:
+```
+C_i = A_i XOR B_i
+```
+implemented with two CNOT gates:
+```
+qc.cx(A[i], C[i])
+qc.cx(B[i], C[i])
+```
+The resulting quantum state is therefore
+```
+|A, B, A⊕B>
+```
+which lies exactly in the coherent subspace defined by the model.
+
+3- Measure all qubits.
+
+## What the Experiment Tests
+After execution, the results are analysed to check whether the structural relations remain valid.
+For each measured state we verify:
+```
+A_i XOR B_i XOR C_i = 0
+```
+for every axis i = 1..4.
+Two metrics are extracted.
+
+### coherent_rate
+
+Percentage of shots where all four parity relations are satisfied simultaneously.
+```
+coherent_rate =
+shots where all constraints hold
+--------------------------------
+total shots
+```
+This measures how often the system remains inside the coherent structural subspace.
+
+### axis_consistency
+
+Average fraction of axes that satisfy the relation.
+```
+axis_consistency =
+correct axes across all shots
+-----------------------------
+4 × total shots
+```
+This metric is useful because noise usually breaks individual axes, not the entire state.
+
+## Results on Real Hardware
+Example execution on IBM Marrakesh:
+```
+coherent_rate   ≈ 0.87
+axis_consistency ≈ 0.96
+```
+
+## Interpretation:
+- Around 87% of shots remain completely coherent
+- Around 96% of individual axes satisfy the structural relation
+This indicates that the hardware preserves the triadic parity constraints surprisingly well, even with hundreds of gates after transpilation.
+
+## What This Demonstrates
+This first experiment shows that:
+- The tri-hypercube constraint can be implemented directly as a quantum circuit.
+- The resulting states form a coherent parity-constrained subspace.
+- Real NISQ hardware can maintain this structure with relatively high fidelity.
+
+This provides the experimental foundation for the following experiments, which explore:
+- amplification of structural subsets using Grover
+- statistical behaviour of the constrained subspace
+- geometric properties of different structural selections.
+
+## Result Files
+
+Example output:
+```
+tri_hypercube_quantum_20260314_202450.json
+```
+
+These files contain:
+```
+shots
+coherent_rate
+axis_consistency
+counts
+```
+allowing full reproducibility of the experiment.
 
 ---
 
