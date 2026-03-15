@@ -253,7 +253,6 @@ Example output:
 ```
 tri_hypercube_quantum_20260314_202450.json
 ```
-
 These files contain:
 ```
 shots
@@ -272,15 +271,179 @@ File:
 ```
 tri_hipercubo_quantum_v2.py
 ```
+## Objective
 
 Adds a Grover step selecting **one‑hot states of A**.
+After verifying in Experiment v1 that the tri-hypercube constraint can survive hardware noise, the next question is:
+```
+Can we select or amplify a specific structural subset of that coherent subspace using quantum algorithms?
+```
 
-Example results:
+To explore this, the experiment introduces a Grover amplification step applied only to register A.
+The goal is to bias the system toward a particular family of states without breaking the triadic constraint
+```
+C_i = A_i XOR B_i
+```
 
-A_good_rate ≈ 0.49  
-joint_rate ≈ 0.41
+## Structural Subset: One-Hot States
 
-Meaning that a structural subset of states can be amplified without destroying coherence.
+The subset selected by the oracle is the set of one-hot states of A:
+```
+0001
+0010
+0100
+1000
+```
+
+These states correspond to unit vectors in the 4-dimensional hypercube, i.e. the axes of the hypercube.
+Geometrically:
+```
+(1,0,0,0)
+(0,1,0,0)
+(0,0,1,0)
+(0,0,0,1)
+```
+This subset contains:
+```
+4 states out of 16 possible A states
+```
+
+so the baseline probability without amplification is:
+```
+4 / 16 = 0.25
+```
+
+## Circuit Structure
+The circuit begins exactly like the previous experiment.
+
+### Step 1 — Superposition
+Registers A and B are prepared in uniform superposition:
+```
+qc.h(A)
+qc.h(B)
+```
+This creates all combinations of A and B.
+
+### Step 2 — Grover Amplification on A
+A single Grover iteration is applied to register A:
+```
+Oracle → Diffusion
+```
+The oracle marks the one-hot states and the diffusion operator amplifies their amplitude.
+This increases the probability of measuring those states.
+
+### Step 3 — Structural Constraint
+
+After amplification, register C is computed from A and B:
+```
+C_i = A_i XOR B_i
+```
+using CNOT gates:
+```
+qc.cx(A[i], C[i])
+qc.cx(B[i], C[i])
+```
+This ensures that the final state still lies in the tri-hypercube coherent subspace.
+
+## What the Experiment Tests
+This experiment evaluates whether Grover amplification can operate inside the constrained subspace without destroying the structural relations.
+Four main metrics are extracted.
+
+### coherent_rate
+Percentage of shots where all parity relations hold simultaneously:
+```
+A_i XOR B_i XOR C_i = 0
+```
+This measures whether the structural model survives amplification.
+
+### axis_consistency
+Average fraction of axes satisfying the relation.
+This reveals whether noise breaks constraints locally or globally.
+
+### A_good_rate
+Fraction of shots where register A belongs to the selected subset:
+```
+{0001,0010,0100,1000}
+```
+Without Grover this value should be:
+```
+≈ 0.25
+```
+After amplification it should increase.
+
+### joint_rate
+Fraction of shots where both conditions hold:
+```
+A ∈ one-hot subset
+AND
+tri-hypercube constraints satisfied
+```
+This metric is the most informative because it measures successful structural amplification.
+
+## Example Results (IBM Marrakesh)
+
+Typical values observed in hardware:
+```
+coherent_rate   ≈ 0.85
+axis_consistency ≈ 0.96
+A_good_rate     ≈ 0.49
+joint_rate      ≈ 0.41
+```
+
+Interpretation:
+The Grover step nearly doubles the probability of the selected subset:
+```
+baseline ≈ 0.25
+observed ≈ 0.49
+```
+Structural coherence remains high.
+This means the circuit successfully performs selective amplification within the coherent subspace.
+
+## What This Demonstrates
+
+This experiment shows that:
+- The tri-hypercube constraint remains robust even after applying a Grover amplification step.
+- Quantum amplitude amplification can bias the structural state space toward specific subsets.
+- The resulting states remain largely inside the coherent subspace defined by the model.
+
+In other words:
+```
+Grover amplification can operate within a structured parity-constrained subspace without destroying its coherence.
+```
+
+## Geometric Interpretation
+
+In the hypercube representation of register A:
+- one-hot states correspond to the axes of the 4D hypercube
+Grover amplification therefore concentrates amplitude on these axis directions.
+
+When propagated through the structural constraint
+```
+C = A XOR B
+```
+this selection defines families of coherent states inside the tri-hypercube.
+
+## Result Files
+Example output:
+```
+tri_hypercube_quantum_v2_20260314_203047.json
+```
+These files contain:
+```
+coherent_rate
+axis_consistency
+A_good_rate
+joint_rate
+counts
+```
+and allow full reproducibility of the experiment.
+
+## Role in the Project
+Experiment v2 establishes that the tri-hypercube model is not only structurally coherent but also dynamically manipulable using quantum algorithms.
+This provides the foundation for the following experiments:
+- statistical benchmarking (v3)
+- Grover dynamics sweep (v4)
+- geometric subset comparison (v5)
 
 ---
 
@@ -291,19 +454,167 @@ File:
 ```
 tri_hipercubo_quantum_v3.py
 ```
-
 Compares baseline vs Grover selection.
-
 Derived metrics include:
-
+```
 P(coherent | A_good)  
 P(A_good | coherent)
-
-Result file:
-
 ```
-tri_hypercube_v1_v2_benchmark_*.json
+
+## Objective 
+The previous experiments demonstrated two key properties:
+- The tri-hypercube constraint survives noise in real quantum hardware.
+- Grover amplification can bias the system toward a structural subset of states.
+However, those results alone do not reveal how the structural constraint and the Grover selection interact statistically.
+
+This experiment introduces a statistical benchmark comparing two scenarios:
 ```
+v1 → baseline structural coherence
+v2 → structural coherence with Grover amplification
+```
+
+The goal is to measure how strongly the amplified subset remains compatible with the triadic constraint.
+
+## Experimental Setup
+
+Two circuits are executed:
+
+### Baseline (v1)
+Uniform superposition over registers A and B:
+```
+|A, B, A⊕B>
+```
+No selection is applied.
+This produces the natural distribution of states in the coherent subspace.
+
+### Grover selection (v2)
+A Grover iteration is applied to register A to amplify the one-hot states:
+```
+0001
+0010
+0100
+1000
+```
+After amplification the structural constraint
+```
+C_i = A_i XOR B_i
+```
+is computed as before.
+
+## Metrics Introduced
+
+The main contribution of this experiment is the introduction of conditional structural metrics.
+These metrics allow us to measure how selection and coherence interact.
+
+### coherent_rate
+Fraction of shots satisfying the structural constraint:
+```
+A_i XOR B_i XOR C_i = 0
+```
+for all four axes.
+
+### A_good_rate
+Fraction of shots where register A belongs to the selected subset:
+```
+{0001,0010,0100,1000}
+```
+Baseline expectation without Grover:
+```
+0.25
+```
+
+### joint_rate
+Fraction of shots satisfying both conditions:
+```
+A ∈ one-hot subset
+AND
+structural constraint holds
+```
+This measures the effective success rate of structured amplification.
+
+## Conditional Metrics
+
+The most informative quantities are two conditional probabilities.
+### P(coherent | A_good)
+Probability that the structural constraint holds given that the selected subset was measured.
+```
+P(coherent | A_good) =
+joint_rate / A_good_rate
+```
+This answers the question:
+If the Grover selection succeeds, how often does the structural model remain valid?
+
+### P(A_good | coherent)
+Probability that the measured state belongs to the selected subset given that the system is coherent.
+```
+P(A_good | coherent) =
+joint_rate / coherent_rate
+```
+This measures how strongly the coherent subspace is biased toward the selected structural family.
+
+## Example Results (IBM Marrakesh)
+
+Typical results obtained on real hardware:
+### Baseline (v1):
+```
+coherent_rate ≈ 0.885
+axis_consistency ≈ 0.970
+A_good_rate ≈ 0.255
+joint_rate ≈ 0.229
+```
+
+### Grover selection (v2):
+```
+coherent_rate ≈ 0.824
+axis_consistency ≈ 0.951
+A_good_rate ≈ 0.416
+joint_rate ≈ 0.346
+```
+### Derived conditional metrics:
+```
+P(coherent | A_good) ≈ 0.83
+P(A_good | coherent) ≈ 0.42
+```
+
+## Interpretation
+These results show that:
+• The structural constraint remains robust even when Grover amplification is applied.
+• The probability of observing the target structural subset increases significantly.
+• The amplified states still remain largely inside the coherent tri-hypercube subspace.
+
+In other words:
+The Grover selection and the structural constraint are compatible rather than competing mechanisms.
+
+## Why This Experiment Matters
+Experiment v3 transforms the previous tests into a true statistical benchmark.
+Instead of measuring only raw success rates, it measures:
+```
+how selection interacts with structural coherence
+```
+This provides a clearer picture of the system's behavior under noise.
+
+## Result Files
+
+Example outputs:
+```
+tri_hypercube_v1_v2_benchmark_20260314_205037.json
+```
+These JSON files include:
+```
+coherent_rate
+axis_consistency
+A_good_rate
+joint_rate
+conditional probabilities
+```
+allowing the benchmark to be reproduced and compared across hardware backends.
+
+## Role in the Project
+Experiment v3 provides the statistical framework used in the final benchmark stage.
+The metrics introduced here are later used in:
+- Structured Coherence Certificate
+
+which summarizes the structural performance of a quantum backend.
 
 ---
 
