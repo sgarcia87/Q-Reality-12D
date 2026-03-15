@@ -1,0 +1,54 @@
+{
+  "backend": "ibm_marrakesh",
+  "timestamp": "2026-03-15T00:32:54.715981",
+  "results": {
+    "baseline_uniform": {
+      "job_id": "d6quvuropkic73fihu8g",
+      "metrics": {
+        "shots": 4096,
+        "coherent_rate": 0.864990234375,
+        "axis_consistency": 0.96490478515625,
+        "A_good_rate": 0.2685546875,
+        "joint_rate": 0.23388671875,
+        "gain_A": 1.07421875,
+        "P_coherent_given_A": 0.8709090909090909,
+        "P_A_given_coherent": 0.27039232289020604,
+        "baseline_A": 0.25,
+        "baseline_joint": 0.21624755859375
+      },
+      "coherence_score": 79.66
+    },
+    "grover_one_hot": {
+      "job_id": "d6qv03bopkic73fihueg",
+      "metrics": {
+        "shots": 4096,
+        "coherent_rate": 0.743896484375,
+        "axis_consistency": 0.929443359375,
+        "A_good_rate": 0.697509765625,
+        "joint_rate": 0.530517578125,
+        "gain_A": 2.7900390625,
+        "P_coherent_given_A": 0.7605880294014701,
+        "P_A_given_coherent": 0.7131604857236626,
+        "baseline_A": 0.25,
+        "baseline_joint": 0.18597412109375
+      },
+      "coherence_score": 87.64
+    },
+    "grover_two_hot": {
+      "job_id": "d6qv07i0q0ls73csqp20",
+      "metrics": {
+        "shots": 4096,
+        "coherent_rate": 0.765869140625,
+        "axis_consistency": 0.9365234375,
+        "A_good_rate": 0.624755859375,
+        "joint_rate": 0.48876953125,
+        "gain_A": 1.666015625,
+        "P_coherent_given_A": 0.782336850332161,
+        "P_A_given_coherent": 0.6381893528849218,
+        "baseline_A": 0.375,
+        "baseline_joint": 0.287200927734375
+      },
+      "coherence_score": 83.72
+    }
+  }
+}
